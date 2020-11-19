@@ -5,13 +5,16 @@ function insertItem() {
   const name = document.getElementById("item-name-input");
   const price = document.getElementById("item-price-input");
 
-  const item = {
-    itemName: name.value,
-    itemPrice: price.value
-  };
-  items.push(item);
-
-  renderList();
+  if (name.value !== "" && price.value !== "") {
+    const item = {
+      itemName: name.value,
+      itemPrice: price.value
+    };
+    console.log("name " + price.value);
+    console.log(price.value);
+    items.push(item);
+    renderList();
+  }
 
   name.value = "";
   price.value = undefined;
@@ -82,5 +85,8 @@ function calculatePrice() {
     totalPrice += parseInt(items[i].itemPrice);
   }
   console.log("in func" + totalPrice);
+  if (isNaN(totalPrice)) {
+    return 0;
+  }
   return totalPrice;
 }
