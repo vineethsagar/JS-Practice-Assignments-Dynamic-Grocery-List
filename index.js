@@ -80,7 +80,9 @@ function renderList() {
 
 function calculatePrice() {
   let totalPrice = 0;
-
+  if (items.length === 0) {
+    return 0;
+  }
   for (let i = 0; i < items.length; i++) {
     totalPrice += parseInt(items[i].itemPrice);
   }
